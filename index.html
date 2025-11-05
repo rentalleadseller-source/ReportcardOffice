@@ -2,11 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Public Record Insights — Fast & Secure</title>
 <style>
+/* ===== Global fixes ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
 :root {
-  --primary: #1d4ed8; /* corporate blue */
+  --primary: #1d4ed8;
   --primary-hover: #1e40af;
   --text-dark: #111827;
   --text-muted: #4b5563;
@@ -19,11 +32,10 @@
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
   background: linear-gradient(to bottom, #ffffff, #f3f4f6);
-  margin: 0;
-  padding: 0;
   color: var(--text-dark);
 }
 
+/* ===== Header ===== */
 header {
   text-align: center;
   padding: 28px 16px 16px;
@@ -35,17 +47,19 @@ header .logo {
   color: var(--primary);
 }
 
+/* ===== Container ===== */
 .container {
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   max-width: 720px;
-  width: 92%;
+  width: 100%;
   margin: 0 auto 32px;
-  padding: 32px 28px 38px;
+  padding: 32px 16px 38px;
   text-align: center;
 }
 
+/* ===== Lead text ===== */
 .lead {
   color: var(--text-muted);
   font-size: 1rem;
@@ -53,6 +67,20 @@ header .logo {
   transition: all 0.5s ease;
 }
 
+.lead.congrats {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* ===== Meter ===== */
 .meter {
   font-size: 1.05rem;
   color: var(--text-dark);
@@ -63,9 +91,9 @@ header .logo {
   display: inline-block;
 }
 
+/* ===== List ===== */
 ul {
-  text-align: left;
-  display: inline-block;
+  display: block;
   margin: 18px 0 24px;
   padding-left: 0;
   list-style: none;
@@ -103,6 +131,7 @@ li.dont-back:hover {
   font-weight: bold;
 }
 
+/* ===== CTA ===== */
 .cta {
   display: inline-block;
   text-align: center;
@@ -122,13 +151,14 @@ li.dont-back:hover {
   box-shadow: 0 4px 12px rgba(29,78,216,0.2);
 }
 
+/* ===== Trust ===== */
 .trust {
   color: var(--text-muted);
   font-size: 0.85rem;
   margin-top: 20px;
 }
 
-/* Spinner */
+/* ===== Spinner ===== */
 #spinner {
   display: inline-block;
   animation: spin 1s linear infinite;
@@ -138,20 +168,7 @@ li.dont-back:hover {
   100% { transform: rotate(360deg);}
 }
 
-/* Congrats animation */
-.lead.congrats {
-  color: var(--primary);
-  font-weight: bold;
-  font-size: 1.2rem;
-  animation: popIn 0.5s ease-out;
-}
-@keyframes popIn {
-  0% { transform: scale(0.8); opacity: 0; }
-  60% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); }
-}
-
-/* Reviews section */
+/* ===== Reviews ===== */
 .reviews {
   margin-top: 36px;
   text-align: center;
@@ -166,7 +183,7 @@ li.dont-back:hover {
   color: var(--text-dark);
   border-radius: 12px;
   padding: 18px 20px;
-  max-width: 620px;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 120px;
   transition: all 0.6s ease;
@@ -183,7 +200,7 @@ li.dont-back:hover {
 #review-box p { font-size: 0.96rem; line-height: 1.5; margin-bottom: 6px; }
 #review-box .name { font-weight: 600; color: #4b5563; font-size: 0.9rem; }
 
-/* Footer */
+/* ===== Footer ===== */
 footer {
   text-align: center;
   font-size: 0.85rem;
@@ -232,7 +249,7 @@ footer {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  // Fetch user location via IP, show only city + country
+  // Fetch user location via IP
   fetch('https://ipapi.co/json/')
     .then(res => res.json())
     .then(data => {
