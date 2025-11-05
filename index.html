@@ -6,26 +6,33 @@
 <title>Public Record Insights — Fast & Secure</title>
 <style>
 :root {
-  --primary: #059669; /* green accent */
-  --primary-hover: #047857;
+  --primary: #1d4ed8; /* corporate blue */
+  --primary-hover: #1e40af;
   --text-dark: #111827;
   --text-muted: #4b5563;
   --bg-light: #f9fafb;
   --card-bg: #ffffff;
-  --radius: 14px;
+  --radius: 12px;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: var(--bg-light);
+  background: linear-gradient(to bottom, #ffffff, #f3f4f6);
   margin: 0;
   padding: 0;
   color: var(--text-dark);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 28px 16px 16px;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--primary);
 }
 
 .container {
@@ -34,13 +41,14 @@ body {
   box-shadow: var(--shadow);
   max-width: 720px;
   width: 92%;
+  margin: 0 auto 32px;
   padding: 32px 28px 38px;
   text-align: center;
 }
 
 h1 {
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 10px;
 }
 
@@ -80,26 +88,25 @@ li {
 }
 
 li.dont-back {
-  background: #ecfdf5;
+  background: #e0f2fe;
   border-left: 4px solid var(--primary);
-  color: #065f46;
+  color: var(--primary);
   font-weight: 600;
   text-align: center;
   font-size: 1rem;
   padding: 12px 14px;
-  box-shadow: 0 2px 8px rgba(5,150,105,0.1);
+  box-shadow: 0 2px 8px rgba(29,78,216,0.1);
   transition: all 0.25s ease;
 }
 
 li.dont-back:hover {
   transform: scale(1.02);
-  box-shadow: 0 3px 10px rgba(5,150,105,0.15);
+  box-shadow: 0 3px 10px rgba(29,78,216,0.15);
 }
 
 .back-highlight {
   color: #dc2626;
   font-weight: bold;
-  font-size: 1.1rem;
 }
 
 .cta {
@@ -108,7 +115,7 @@ li.dont-back:hover {
   background: var(--primary);
   color: #fff;
   text-decoration: none;
-  padding: 14px 22px;
+  padding: 14px 24px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 1.05rem;
@@ -118,7 +125,7 @@ li.dont-back:hover {
 .cta:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(5,150,105,0.2);
+  box-shadow: 0 4px 12px rgba(29,78,216,0.2);
 }
 
 .trust {
@@ -137,9 +144,9 @@ li.dont-back:hover {
   100% { transform: rotate(360deg);}
 }
 
-/* Congrats animation with new color */
+/* Congrats animation */
 .lead.congrats {
-  color: #1d4ed8; /* bright blue */
+  color: var(--primary);
   font-weight: bold;
   font-size: 1.2rem;
   animation: popIn 0.5s ease-out;
@@ -150,7 +157,7 @@ li.dont-back:hover {
   100% { transform: scale(1); }
 }
 
-/* Vertical reviews */
+/* Reviews section */
 .reviews {
   margin-top: 36px;
   text-align: center;
@@ -181,38 +188,63 @@ li.dont-back:hover {
 }
 #review-box p { font-size: 0.96rem; line-height: 1.5; margin-bottom: 6px; }
 #review-box .name { font-weight: 600; color: #4b5563; font-size: 0.9rem; }
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 40px 0 20px;
+}
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  margin: 0 6px;
+}
+footer a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
+
+<header>
+  <div class="logo">Public Record Insights</div>
+</header>
+
 <div class="container">
-<h1>🔍 Public Record Insights</h1>
-<p id="geo" class="lead">Checking Your Eligibility... <span id="spinner">⏳</span></p>
-<div class="meter">🟢 Instantly search public and background records</div>
+  <h1>🔍 Public Record Insights</h1>
+  <p id="geo" class="lead">Checking Your Eligibility... <span id="spinner">⏳</span></p>
+  <div class="meter">🟢 Instantly search public and background records</div>
 
-<ul>
-<li>📑 Access public and background information</li>
-<li>🔒 Privacy-first, secure redirect</li>
-<li>⚡ Fast search, no delays</li>
-<li class="dont-back">🕵 Don't press <span class="back-highlight">BACK</span> until you see your report</li>
-</ul>
+  <ul>
+    <li>📑 Access public and background information</li>
+    <li>🔒 Privacy-first, secure results</li>
+    <li>⚡ Fast search, no delays</li>
+    <li class="dont-back">🕵 Don't press <span class="back-highlight">BACK</span> until you see your report</li>
+  </ul>
 
-<a href="https://spikemycreditscore.com/?mbi=333639951#" 
-class="cta" target="_blank" rel="noopener sponsored">
-➡️ Check Your Public Background Report
-</a>
+  <a href="https://spikemycreditscore.com/?mbi=333639951#" 
+     class="cta" target="_blank" rel="noopener sponsored">
+    ➡️ Check Your Public Background Report
+  </a>
 
-<div class="trust">🔒 SSL Secured • 🌐 Independent • 🚀 Transparency First</div>
+  <div class="trust">🔒 SSL Secured • 🌐 Independent • 🚀 Transparency First</div>
 
-<!-- Vertical reviews section -->
-<div class="reviews">
-<h2>Recent User Feedback 😊</h2>
-<div id="review-box" class="review active">
-<div class="stars">⭐⭐⭐⭐⭐ (5.0)</div>
-<p>Loading latest reviews...</p>
-<div class="name">— Verified User</div>
+  <div class="reviews">
+    <h2>Recent User Feedback 😊</h2>
+    <div id="review-box" class="review active">
+      <div class="stars">⭐⭐⭐⭐⭐ (5.0)</div>
+      <p>Loading latest reviews...</p>
+      <div class="name">— Verified User</div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
+<footer>
+  © 2025 Public Record Insights — All rights reserved • 
+  <a href="#">Privacy</a> • <a href="#">Terms</a>
+</footer>
 
 <script>
 // Eligibility spinner -> professional congrats
